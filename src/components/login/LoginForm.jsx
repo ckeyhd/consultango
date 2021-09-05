@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from 'react'
+
+//Components Import
 import { Errors } from '../errors/Errors'
 
 function LoginForm({validateUser}) {
@@ -8,10 +10,10 @@ function LoginForm({validateUser}) {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    validateUser(userInfo)
     if(userInfo.email === " "){
       setError("El campo Email es obligatorio")
     }else{
+      validateUser(userInfo)
       setError(" ")
       console.log("Se envió!!!!");
     }
