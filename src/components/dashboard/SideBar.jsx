@@ -8,9 +8,9 @@ function SideBar({ disconect }) {
 
   const procedureList = [
     {id:1, clientId: 1, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 14:00"},
-    {id:2, clientId: 1, name:"Crédito Lising", status:"Finalizado", icon:"icono2", applicationDate: "2020-01-22 10:00", lastUpdate: "2020-07-10 08:00"},
-    {id:3, clientId: 2, name:"Tarjeta de Crédito", status:"Finalizado", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
-    {id:4, clientId: 1, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
+    {id:2, clientId: 1, name:"Crédito Lising Vehículo", status:"Finalizado", icon:"icono2", applicationDate: "2020-01-22 10:00", lastUpdate: "2020-07-10 08:00"},
+    {id:3, clientId: 1, name:"Tarjeta de Crédito", status:"Finalizado", icon:"icono", applicationDate: "2006-09-27 15:00", lastUpdate: "2021-04-10 10:00"},
+    {id:4, clientId: 2, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
     {id:5, clientId: 2, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
     {id:6, clientId: 1, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
     {id:7, clientId: 2, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
@@ -19,7 +19,7 @@ function SideBar({ disconect }) {
   const [procedures, setProcedures] = useState([])
 
   useEffect(() => {
-    const clientId = 2 //Se asigna el ID del cliente para filtrarlo dentro de la información a consultar
+    const clientId = 1 //Se asigna el ID del cliente para filtrarlo dentro de la información a consultar
     getProcedures(clientId)
   },[])
 
@@ -34,7 +34,6 @@ function SideBar({ disconect }) {
     }, 3000);
   }
 
-
   return (
     <Fragment>
       <div className="wrapper__content--sidebar">
@@ -42,7 +41,7 @@ function SideBar({ disconect }) {
         <ProcedureList>
           {
               procedures.map((procedure)=>{
-              return <ProcedureItem key={procedure.id} data={ procedure }/>
+              return <ProcedureItem key={ procedure.id } data={ procedure }/>
             })
           }
         </ProcedureList>
