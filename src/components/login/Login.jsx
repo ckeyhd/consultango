@@ -4,14 +4,14 @@ import { Errors } from '../errors/Errors'
 import { LoginForm } from './LoginForm'
 import { LoginOTP } from './LoginOTP'
 
-function Login({ status, disconect }) {
+function Login() {
 
   const users = [
     {id: 1, name: "Camilo Taborda", email: "ckey08@gmail.com", image:"", status: "block"},
     {id: 2, name: "Lina Pineda", email: "marcelita-621@hotmail.com", image:"", status: "active"},
   ]
 
-  const [ userExist, setUserExist ] = useState(false)
+  const [ userExist, setUserExist ] = useState({id: " ", status: " "})
   const [error, setError] = useState(" ")
 
   const characteresLength = 4; //Cantidad de caracteres que lleva el código de autorización
@@ -27,7 +27,11 @@ function Login({ status, disconect }) {
         localStorage.setItem("authCode",authCode)
         localStorage.setItem("authCodeMD5",authCode)
         console.log("valor de authCode",authCode);
-        return setUserExist(true)
+        console.log("valor de e.id",e.id);
+        setUserExist({
+          id: e.id,
+          status: "ok"
+        })
       }else{
         if(details.email != ""){
           return setError("El usuario no existe!");
@@ -38,7 +42,7 @@ function Login({ status, disconect }) {
 
   return (
     <Fragment>
-      {(userExist) ? <LoginOTP characters={ characteresLength } disconect = { disconect } /> :
+      {(userExist.status === 'ok') ? <LoginOTP characters={ characteresLength } clientID={ userExist.id } /> :
         <Fragment>
           <Avatar />
           <Errors message={ error } />

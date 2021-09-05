@@ -1,17 +1,22 @@
 import React, { Fragment, useState } from 'react'
 
-function ProcedureItem({ data }) {
-
-  const [itemClick,setItemClick] = useState("")
+function ProcedureItem({ data, getDetails }) {
 
   const handlerClick = (e)=>{
-    let procedureID = e.target.parentElement.id;
-    console.log("Valor de e",e);
-    console.log("Valor de procedureID",procedureID);
+    let procedureID = "";
+    if(e.target.id!=""){
+      procedureID = e.target.id;
+    }else if(e.target.parentElement.id != ""){
+      procedureID = e.target.parentElement.id
+    }
+
+    getDetails(Number(procedureID)) //Elevar el estado enviando el id del trámite
+
   }
+
   return (
     <Fragment >
-      <li onClick = { handlerClick }>
+      <li onClick={ handlerClick }>
         <div id={data.id}>
           <span>{data.icon}</span>
           <h3>{data.name}</h3>

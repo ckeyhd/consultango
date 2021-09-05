@@ -1,30 +1,31 @@
- import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
+
 import { DetailProcedureItem } from '../proceduresDetails/DetailProcedureItem'
 import { DetailProcedureList } from '../proceduresDetails/DetailProcedureList'
 
- function Content() {
+ function Content({ procedureID }) {
 
   const proceduresDetails = [
-    {id: 1, procedureID: 1, description: "Se inicia estudio de crédito", dateCreated: "2021-01-22 10:00", user: "ataborda"},
-    {id: 2, procedureID: 1, description: "La documentación enviada por el ciente es correcta", dateCreated: "2021-01-22 10:00", user: "mperez"},
-    {id: 7, procedureID: 1, description: "Se pasa a firma de escritura", dateCreated: "2021-01-22 10:00", user: "potalora"},
-    {id: 3, procedureID: 2, description: "El cliente solicita financiación del 50% del valor del vehículo", dateCreated: "2021-01-22 10:00", user: "gcardona"},
-    {id: 6, procedureID: 2, description: "Se autoriza el valor del monto solicitado por el cliente", dateCreated: "2021-01-22 14:00", user: "ataborda"},
-    {id: 8, procedureID: 2, description: "No es posible realizar el desembolso por bloqueo de cuenta", dateCreated: "2021-02-08 08:15", user: "hmartinez"},
-    {id: 10, procedureID: 2, description: "Se realiza desembolso a la cuenta del cliente", dateCreated: "2021-02-08 15:00", user: "hmartinez"},
-    {id: 4, procedureID: 3, description: "Se inicia estudio de crédito para validación de TDC", dateCreated: "2006-09-27 15:00", user: "pholguin"},
-    {id: 9, procedureID: 3, description: "Validación en centrales aprobada", dateCreated: "2006-09-27 15:10", user: "jpulido"},
-    {id: 5, procedureID: 3, description: "No es posible dar el monto solicitado", dateCreated: "2006-09-27 16:30", user: "jpulido"},
+    {id: 1, clientID: 1,procedureID: 1, description: "Se inicia estudio de crédito", dateCreated: "2021-01-22 10:00", user: "ataborda"},
+    {id: 2, clientID: 1, procedureID: 1, description: "La documentación enviada por el ciente es correcta", dateCreated: "2021-01-22 10:00", user: "mperez"},
+    {id: 3, clientID: 1, procedureID: 2, description: "El cliente solicita financiación del 50% del valor del vehículo", dateCreated: "2021-01-22 10:00", user: "gcardona"},
+    {id: 4, clientID: 1, procedureID: 3, description: "Se inicia estudio de crédito para validación de TDC", dateCreated: "2006-09-27 15:00", user: "pholguin"},
+    {id: 5, clientID: 1, procedureID: 3, description: "No es posible dar el monto solicitado", dateCreated: "2006-09-27 16:30", user: "jpulido"},
+    {id: 6, clientID: 1, procedureID: 2, description: "Se autoriza el valor del monto solicitado por el cliente", dateCreated: "2021-01-22 14:00", user: "ataborda"},
+    {id: 7, clientID: 1, procedureID: 1, description: "Se pasa a firma de escritura", dateCreated: "2021-01-22 10:00", user: "potalora"},
+    {id: 8, clientID: 1, procedureID: 2, description: "No es posible realizar el desembolso por bloqueo de cuenta", dateCreated: "2021-02-08 08:15", user: "hmartinez"},
+    {id: 9, clientID: 1, procedureID: 3, description: "Validación en centrales aprobada", dateCreated: "2006-09-27 15:10", user: "jpulido"},
+    {id: 10, clientID: 2, procedureID: 4, description: "Se realiza desembolso a la cuenta del cliente", dateCreated: "2021-02-08 15:00", user: "hmartinez"},
+    {id: 11, clientID: 2, procedureID: 5, description: "Se realiza desembolso a la cuenta del cliente", dateCreated: "2021-02-08 15:00", user: "hmartinez"},
+    {id: 12, clientID: 2, procedureID: 4, description: "Se realiza desembolso a la cuenta del cliente", dateCreated: "2021-02-08 15:00", user: "hmartinez"},
+    {id: 13, clientID: 2, procedureID: 5, description: "Se realiza desembolso a la cuenta del cliente", dateCreated: "2021-02-08 15:00", user: "hmartinez"},
   ]
 
   const [detailList, setDetailList] = useState([])
-  // const [procedureID, setProcedureID] = useState(" ")
 
   useEffect(() => {
-    const procedureID = 1 //Se asigna el ID del trámite para filtrarlo dentro de la información a consultar
     getProceduresDetails(procedureID)
-  },[])
-
+  },[procedureID]);
 
   //Obtener data según el ID del trámite del cliente
   const getProceduresDetails = (procedureID)=>{
@@ -34,19 +35,19 @@ import { DetailProcedureList } from '../proceduresDetails/DetailProcedureList'
       console.log("valor de procedureDetailLIst",procedureDetailLIst);
       procedureDetailLIst.sort((a,b)=>b.id - a.id) //Ordenar los detalles según el ID
       setDetailList(procedureDetailLIst)
-    }, 3000);
+    }, 1500);
   }
 
    return (
      <Fragment>
       <div className="wrapper__content--content">
-        <DetailProcedureList>
-          {
-            detailList.map((detail)=>{
-              return <DetailProcedureItem key={detail.id} data={ detail }/>
-            })
-          }
-        </DetailProcedureList>
+          <DetailProcedureList>
+            {
+              detailList.map(detail=>(
+                <DetailProcedureItem key={detail.id} data={ detail }/>
+              ))
+            }
+          </DetailProcedureList>
       </div>
      </Fragment>
    )
