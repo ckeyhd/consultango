@@ -1,0 +1,79 @@
+.wrapper__login__otp {
+  width: 500px;
+  background: #fff;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 17px;
+  transition: box-shadow .3s;
+  box-shadow: 0px 0px 10px 0px #e6d7eb;
+  position: relative; }
+  .wrapper__login__otp:hover {
+    box-shadow: 0px 0px 14px 0px var(--orange); }
+
+.wrapper__login__otp--inputs {
+  margin: 0px auto 17px; }
+
+.wrapper__login__otp--ribbons-item {
+  position: relative; }
+  .wrapper__login__otp--ribbons-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: .9;
+    transform: rotate(34deg); }
+  .wrapper__login__otp--ribbons-item:nth-child(1) {
+    left: 50%;
+    top: -17%; }
+    .wrapper__login__otp--ribbons-item:nth-child(1)::before {
+      width: 67px;
+      height: 120px;
+      background: linear-gradient(125deg, var(--purple), var(--pink));
+      border-radius: 2em; }
+  .wrapper__login__otp--ribbons-item:nth-child(2) {
+    left: -11%;
+    top: -92px; }
+    .wrapper__login__otp--ribbons-item:nth-child(2)::before {
+      width: 134px;
+      height: 300px;
+      background: linear-gradient(125deg, var(--purple), var(--pink));
+      border-radius: 4em; }
+  .wrapper__login__otp--ribbons-item:nth-child(3) {
+    left: -11%;
+    top: -92px; }
+    .wrapper__login__otp--ribbons-item:nth-child(3)::before {
+      width: 134px;
+      height: 300px;
+      background: linear-gradient(125deg, var(--purple), var(--pink));
+      border-radius: 4em;
+      opacity: 0.2;
+      box-shadow: 0px 0px 0px calc(1vw + 1em) var(--purple); }
+  .wrapper__login__otp--ribbons-item:nth-child(4) {
+    left: -5%;
+    bottom: -59%; }
+    .wrapper__login__otp--ribbons-item:nth-child(4)::before {
+      width: 52px;
+      height: 124px;
+      background: linear-gradient(125deg, var(--purple), var(--pink));
+      border-radius: 2em; }
+  .wrapper__login__otp--ribbons-item:nth-child(5) {
+    left: 41%;
+    bottom: -73%; }
+    .wrapper__login__otp--ribbons-item:nth-child(5)::before {
+      width: 79px;
+      height: 149px;
+      background: linear-gradient(125deg, var(--orange), var(--pink));
+      border-radius: 3em; }
+
+.wrapper__login__otp--ribbons {
+  position: absolute;
+  height: inherit;
+  right: 23%; }
+
+.wrapper__login__otp--content {
+  text-align: center; }
+
+/*# sourceMappingURL=loginOTP.css.map */

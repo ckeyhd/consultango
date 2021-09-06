@@ -5,7 +5,7 @@ import { ProcedureSearch } from '../procedures/ProcedureSearch'
 import { ProcedureList } from '../procedures/ProcedureList'
 import { ProcedureItem } from '../procedures/ProcedureItem'
 
-function SideBar({ disconect, clientID, getDetails }) {
+function SideBar({ disconect, userInfo, getDetails }) {
 
   const procedureList = [
     {id:1, clientId: 1, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 14:00"},
@@ -29,9 +29,9 @@ function SideBar({ disconect, clientID, getDetails }) {
 
   useEffect(() => {
     //Se asigna el ID del cliente para filtrarlo dentro de la información a consultar
-    getProcedures(clientID)
+    getProcedures(userInfo.id)
     console.log("Nuevo efecto!");
-  },[clientID])
+  },[userInfo.id])
 
 
   //Obtener data según el ID del cliente
@@ -54,7 +54,7 @@ function SideBar({ disconect, clientID, getDetails }) {
   return (
       <Fragment>
         <div className="wrapper__content--sidebar">
-          <ProcedureSearch disconect={ disconect } searchValue={ searchValue } setSearchValue = { setSearchValue }/>
+          <ProcedureSearch disconect={ disconect } searchValue={ searchValue } setSearchValue = { setSearchValue } />
           <ProcedureList>
             {
                 searchedProcedures.map(procedure=>(

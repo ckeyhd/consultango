@@ -1,0 +1,8 @@
+.wrapper__avatar {
+  margin-bottom: 14px; }
+
+.wrapper__avatar--image {
+  border-radius: 100%;
+  object-fit: cover; }
+
+/*# sourceMappingURL=avatar.css.map */

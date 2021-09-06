@@ -5,17 +5,22 @@ import { Dashboard } from "./components/dashboard/Dashboard";
 function App() {
 
   const [logged, setLogged] = useState(false)
-  const [idUserLogged, setIdUserLogged] = useState(" ")
+  const [user, setUser] = useState(" ")
 
   useEffect(() => {
     if(localStorage.getItem("logged") === "yes"){
-      setIdUserLogged(Number(localStorage.getItem("clientID")))
+      const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+      if(userInfo){
+        setUser(userInfo)
+      }else{
+        setLogged(false)
+      }
       setLogged(true)
     }else{
       localStorage.clear();
       setLogged(false)
     }
-  },[idUserLogged])
+  },[logged])
 
   const logout = () =>{
     setLogged(false)
@@ -25,9 +30,9 @@ function App() {
 
   return (
     <div className="App">
-      {(logged) ? <Dashboard clientID= { idUserLogged } disconect = { logout }/> : <Login />}
+      {(logged) ? <Dashboard userInfo= { user } disconect = { logout }/> : <Login />}
     </div>
   );
 }
 
-export default App;
+export { App };

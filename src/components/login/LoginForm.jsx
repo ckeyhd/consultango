@@ -23,10 +23,11 @@ function LoginForm({validateUser}) {
     <Fragment>
       <form onSubmit= { submitHandler }>
         <Errors message={ error }/>
-        <div className="form-group">
+        <div className="group__item">
+          <label htmlFor="">ICONO</label>
           <input type="email" placeholder="Email" name="email" onChange={e => setUserInfo({...userInfo, email: e.target.value})} value={userInfo.email}/>
         </div>
-        <input type="submit" value="Continuar" />
+        <button type="submit">Continuar</button>
       </form>
     </Fragment>
   )

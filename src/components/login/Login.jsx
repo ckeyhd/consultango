@@ -9,6 +9,9 @@ import { Errors } from '../errors/Errors'
 import { LoginForm } from './LoginForm'
 import { LoginOTP } from './LoginOTP'
 
+//CSS Import
+import "./login.css"
+
 function Login() {
 
   const users = [
@@ -98,12 +101,21 @@ function Login() {
 
   return (
     <Fragment>
-      {(userExist.status === 'ok') ? <LoginOTP characters={ characteresLength } clientID={ userExist.id } /> :
-        <Fragment>
-          <Avatar />
-          <Errors message={ error } />
-          <LoginForm validateUser = { validateUser } />
-        </Fragment>
+      {(userExist.status === 'ok') ? <LoginOTP characters={ characteresLength } userInfo={ userExist } /> :
+        <div className="wrapper__login">
+          <div className="wrapper__login--ribbons">
+            <span className="wrapper__login--ribbons-item"></span>
+            <span className="wrapper__login--ribbons-item"></span>
+            <span className="wrapper__login--ribbons-item"></span>
+            <span className="wrapper__login--ribbons-item"></span>
+            <span className="wrapper__login--ribbons-item"></span>
+          </div>
+          <div className="wrapper__login--content">
+            <Avatar width="100px" height="100px"/>
+            <Errors message={ error } />
+            <LoginForm validateUser = { validateUser } />
+          </div>
+        </div>
       }
     </Fragment>
   )

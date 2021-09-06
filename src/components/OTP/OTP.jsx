@@ -37,7 +37,7 @@ function OTP({ validationStatus, characters }) {
   return (
     <Fragment>
       <Errors message= { error }/>
-      <div className="wrapper">
+      <div className="wrapper__login__otp--inputs">
         <OTPInputGenerator qty={ characters } validateChange={ validateChange } OTPKey={ OTPKey }/>
       </div>
       <button>Enviar nuevamente...</button>

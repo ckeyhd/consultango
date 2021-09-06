@@ -16,7 +16,7 @@ function ProcedureSearch({ disconect, searchValue, setSearchValue }) {
 
   return (
     <Fragment>
-      <Avatar />
+      {<Avatar width="70px" height="70px"/>}
       <input type="text" onChange={ proceduresChangeHandler } value={searchValue}/>
       <button onClick={ disconect }>Logout</button>
     </Fragment>

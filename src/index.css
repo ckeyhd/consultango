@@ -1,10 +1,48 @@
+:root{
+  --orange: #f39e69;
+  --purple: #843799;
+  --blue: #015bea;
+  --pink: #ff4a73;
+  --lightOrange: #fb9902;
+  --thinGray: #e8e8e8;
+  --lightGray: #b2bec3;
+  --middleGray: #636e72;
+  --darkGray: #2d3436;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  font-family: 'Montserrat';
+  border: none;
+  color: var(--middleGray);
+  background: var(--thinGray);
+  height: 26px;
+  border-radius: 7px;
+  text-align: center;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.App{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom right,var(--orange), var(--purple));
 }
 
 code {

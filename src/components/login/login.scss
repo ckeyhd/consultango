@@ -1,0 +1,94 @@
+.wrapper__login {
+  width: 500px;
+  background: #fff;
+  height: 300px;
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  grid-template-columns: 300px 1fr;
+  overflow: hidden;
+  border-radius: 17px;
+  transition: box-shadow .3s;
+  box-shadow: 0px 0px 10px 0px #e6d7eb;
+  &:hover{
+    box-shadow: 0px 0px 14px 0px var(--orange);
+  }
+}
+
+@mixin ribbon-style($width, $height, $color, $border-size, $opacity: 1, $shadow:"no"){
+  width: $width;
+  height: $height;
+  background: linear-gradient(125deg, $color, var(--pink));;
+  border-radius: $border-size;
+
+  @if $opacity != 1 {
+    opacity: $opacity
+  }
+
+  @if $shadow != "no"{
+    box-shadow: 0px 0px 0px calc(1vw + 1em) var(--purple);
+  }
+
+}
+
+.wrapper__login--ribbons-item{
+  position: relative;
+
+  &::before{
+    content: "";
+    display: block;
+    position: absolute;
+    // background: linear-gradient(125deg,var(--purple), var(--pink));
+    opacity: .9;
+    transform: rotate(134deg);
+  }
+
+  &:nth-child(1){
+    left: 50%;
+    top: -17%;
+    &::before{
+      @include ribbon-style(67px, 120px, var(--purple), 2em)
+    }
+  }
+  &:nth-child(2){
+    left: -11%;
+    top: -92px;
+    &::before{
+      @include ribbon-style(134px, 300px, var(--purple), 4em)
+    }
+  }
+  &:nth-child(3){
+    left: -11%;
+    top: -92px;
+    &::before{
+      @include ribbon-style(134px, 300px, var(--purple), 4em,.2,'yes')
+    }
+  }
+
+  &:nth-child(4){
+    left: -5%;
+    bottom: -59%;
+    &::before{
+      @include ribbon-style(52px, 124px, var(--purple), 2em)
+    }
+  }
+
+  &:nth-child(5){
+    left: 41%;
+    bottom: -73%;
+    &::before{
+      @include ribbon-style(79px, 149px, var(--orange), 3em)
+    }
+  }
+
+}
+
+.wrapper__login--ribbons{
+  position: relative;
+  height: inherit;
+}
+
+.wrapper__login--content{
+  text-align: center;
+}
+

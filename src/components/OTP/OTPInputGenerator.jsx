@@ -11,7 +11,7 @@ function OTPInputGenerator({qty, validateChange, OTPKey}) {
   return (
     <Fragment>
       {
-        <input type="number" name="OPTKEY" id="" onChange={ validateChange } value={OTPKey} />
+        <input type="number" name="OPTKEY" onChange={ validateChange } value={OTPKey} />
         /* arrInputs.map((e)=>(
           <input type="number" key={e} name="" onChange={ e=>setOTPKey([...OTPKey,e.target.value]) } value={OTPKey[e]}/>
         )) */
