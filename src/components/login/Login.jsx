@@ -14,6 +14,7 @@ function Login() {
   const users = [
     {id: 1, name: "Camilo Taborda", email: "ckey08@gmail.com", image:"", status: "block"},
     {id: 2, name: "Lina Pineda", email: "marcelita-621@hotmail.com", image:"", status: "active"},
+    {id: 3, name: "ParkSite", email: "parknerco@gmail.com", image:"", status: "active"},
   ]
 
   const [ userExist, setUserExist ] = useState({id:" ", name:" ", email:" ", status: " ", authCode: " "})

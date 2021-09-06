@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Avatar } from '../avatar/Avatar'
 
-function ProcedureSearch({ disconect }) {
+function ProcedureSearch({ disconect, searchValue, setSearchValue }) {
 
   /* const logout = () =>{
     setLogged(false)
@@ -9,10 +9,15 @@ function ProcedureSearch({ disconect }) {
     localStorage.removeItem("authCode")
   } */
 
+  const proceduresChangeHandler = (e)=>{
+    setSearchValue(e.target.value)
+    console.log("valor buscado",e.target.value);
+  }
+
   return (
     <Fragment>
       <Avatar />
-      <input type="text" />
+      <input type="text" onChange={ proceduresChangeHandler } value={searchValue}/>
       <button onClick={ disconect }>Logout</button>
     </Fragment>
   )

@@ -8,7 +8,6 @@ import "./dashboard.css"
 
 function Dashboard({ disconect, clientID }) {
 
-  // const clientID = userInfo.id
   const [seeDetails, setSeeDetails] = useState(clientID)
   const getDetails = (procedureID)=>{
     console.log("Valor de procedureID",procedureID);

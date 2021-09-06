@@ -15,13 +15,22 @@ function SideBar({ disconect, clientID, getDetails }) {
     {id:5, clientId: 2, name:"Tarjeta de Crédito", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
     {id:6, clientId: 1, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
     {id:7, clientId: 2, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 10:00"},
+    {id:1, clientId: 3, name:"Compra de Vivienda", status:"En progreso", icon:"icono", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 14:00"},
+    {id:2, clientId: 3, name:"Crédito Lising Vehículo", status:"Finalizado", icon:"icono2", applicationDate: "2020-01-22 10:00", lastUpdate: "2020-07-10 08:00"},
+    {id:3, clientId: 3, name:"Tarjeta de Crédito", status:"Finalizado", icon:"icono", applicationDate: "2006-09-27 15:00", lastUpdate: "2021-04-10 10:00"},
   ]
 
+  //Se almacena la información del trámite del cliente traida del server
   const [procedures, setProcedures] = useState([])
 
+  //Se almacena la información buscada por el usuario
+  const [searchValue, setSearchValue] = useState('')
+
+
   useEffect(() => {
-    // const clientId = 1 //Se asigna el ID del cliente para filtrarlo dentro de la información a consultar
+    //Se asigna el ID del cliente para filtrarlo dentro de la información a consultar
     getProcedures(clientID)
+    console.log("Nuevo efecto!");
   },[clientID])
 
 
@@ -35,13 +44,20 @@ function SideBar({ disconect, clientID, getDetails }) {
     }, 1000);
   }
 
+  //Se filtra la información según la búsqueda del usuario
+  let searchedProcedures = procedures.filter(procedure=>{
+    const getLowerDataText = procedure.name.toLowerCase()
+    const lowerSearchText = searchValue.toLowerCase();
+    return getLowerDataText.includes(lowerSearchText)
+  });
+
   return (
       <Fragment>
         <div className="wrapper__content--sidebar">
-          <ProcedureSearch disconect={ disconect }/>
+          <ProcedureSearch disconect={ disconect } searchValue={ searchValue } setSearchValue = { setSearchValue }/>
           <ProcedureList>
             {
-                procedures.map(procedure=>(
+                searchedProcedures.map(procedure=>(
                   <ProcedureItem key={ procedure.id } data={ procedure } getDetails={ getDetails }/>
                 ))
             }
