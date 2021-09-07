@@ -10,9 +10,44 @@
   border-radius: 17px;
   transition: box-shadow .3s;
   box-shadow: 0px 0px 10px 0px #e6d7eb;
+  position: relative;
   &:hover{
     box-shadow: 0px 0px 14px 0px var(--orange);
+    /* .wrapper__login--ribbons-item{
+      &::before{
+        animation-name: floating;
+        animation-duration: 2.1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+      &:nth-child(1){
+        &::before{
+          animation-delay: .1s;
+        }
+      }
+      &:nth-child(2){
+        &::before{
+          animation-delay: .2s;
+        }
+      }
+      &:nth-child(4){
+        &::before{
+          animation-delay: .3s;
+        }
+      }
+      &:nth-child(5){
+        &::before{
+          animation-delay: .4s;
+        }
+      }
+    } */
   }
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px) rotate(134deg);}
+    65%  { transform: translate(0, 15px) rotate(134deg); }
+    to   { transform: translate(0, -0px) rotate(134deg); }
 }
 
 @mixin ribbon-style($width, $height, $color, $border-size, $opacity: 1, $shadow:"no"){
@@ -41,20 +76,26 @@
     // background: linear-gradient(125deg,var(--purple), var(--pink));
     opacity: .9;
     transform: rotate(134deg);
+    animation-name: floating;
+    animation-duration: 2.1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
   }
 
   &:nth-child(1){
     left: 50%;
     top: -17%;
     &::before{
-      @include ribbon-style(67px, 120px, var(--purple), 2em)
+      @include ribbon-style(67px, 120px, var(--purple), 2em);
+      animation-delay: .1s;
     }
   }
   &:nth-child(2){
     left: -11%;
     top: -92px;
     &::before{
-      @include ribbon-style(134px, 300px, var(--purple), 4em)
+      @include ribbon-style(134px, 300px, var(--purple), 4em);
+      animation-delay: .2s;
     }
   }
   &:nth-child(3){
@@ -69,7 +110,8 @@
     left: -5%;
     bottom: -59%;
     &::before{
-      @include ribbon-style(52px, 124px, var(--purple), 2em)
+      @include ribbon-style(52px, 124px, var(--purple), 2em);
+      animation-delay: .3s;
     }
   }
 
@@ -77,7 +119,8 @@
     left: 41%;
     bottom: -73%;
     &::before{
-      @include ribbon-style(79px, 149px, var(--orange), 3em)
+      @include ribbon-style(79px, 149px, var(--orange), 3em);
+      animation-delay: .4s;
     }
   }
 
@@ -86,9 +129,12 @@
 .wrapper__login--ribbons{
   position: relative;
   height: inherit;
+  left: 25%;
 }
 
 .wrapper__login--content{
   text-align: center;
+  padding: 0 2.5em;
+  width: 300px;
 }
 

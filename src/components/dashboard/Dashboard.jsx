@@ -17,8 +17,8 @@ function Dashboard({ disconect, userInfo }) {
   console.log("valor de userInfo en dash",userInfo);
   return (
     <Fragment>
-      <div className="wrapper__content">
-        <SideBar disconect={disconect} getDetails={ getDetails } userInfo={ userInfo }/>
+      <div className="wrapper__dashboard">
+        <SideBar disconect={ disconect } getDetails={ getDetails } userInfo={ userInfo }/>
         <Content procedureID={ seeDetails }/>
       </div>
     </Fragment>

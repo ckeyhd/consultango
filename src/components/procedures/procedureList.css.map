@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;EACvB,QAAQ,EAAE,MAAM;EAChB,MAAM,EAAE,OAAO;EACf,OAAO,EAAE,CAAC;EACV,QAAQ,EAAE,QAAQ;EAClB;;MAEI",
+"sources": ["procedureList.scss"],
+"names": [],
+"file": "procedureList.css"
+}

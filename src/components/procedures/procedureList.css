@@ -1,0 +1,10 @@
+.wrapper__procedure--list {
+  overflow: scroll;
+  height: inherit;
+  z-index: 1;
+  position: relative;
+  /* &:hover{
+    filter: blur(.7px);
+  } */ }
+
+/*# sourceMappingURL=procedureList.css.map */

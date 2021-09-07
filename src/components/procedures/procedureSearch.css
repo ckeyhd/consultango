@@ -1,0 +1,16 @@
+.wrapper__procedure--search {
+  display: grid;
+  height: 33px;
+  align-items: center;
+  grid-template-columns: 146px 40px;
+  border-radius: 7px;
+  text-align: center;
+  color: var(--middleGray);
+  background: var(--thinGray); }
+
+.wrapper__procedure--search-input {
+  padding: 0 12px; }
+  .wrapper__procedure--search-input::placeholder {
+    text-align: center; }
+
+/*# sourceMappingURL=procedureSearch.css.map */

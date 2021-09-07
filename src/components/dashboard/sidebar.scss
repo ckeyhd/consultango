@@ -1,0 +1,43 @@
+$background: linear-gradient(to bottom right, var(--orange), var(--pink), var(--purple));
+
+.wrapper__dashboard--sidebar{
+  overflow: hidden;
+  background: #fff;
+}
+
+.wrapper__dashboard--sidebar-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 120px;
+  position: relative;
+  background: $background;
+
+  div, button{
+    z-index: 3;
+  }
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+  }
+
+  &::before {
+    width: 70%;
+    height: 140%;
+    background-color: #fff;
+    right: -20%;
+    top: 14%;
+  }
+  &::after {
+    width: 68%;
+    height: 93%;
+    left: -10.5%;
+    top: 25%;
+    background: $background;
+    transform: rotate(9deg);
+    z-index: 2;
+  }
+}

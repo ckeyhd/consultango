@@ -15,7 +15,19 @@
     box-shadow: 0px 0px 14px 0px var(--orange); }
 
 .wrapper__login__otp--inputs {
-  margin: 0px auto 17px; }
+  margin: 0px auto 17px;
+  width: 150px; }
+
+.wrapper__login__otp--input {
+  display: grid;
+  margin: 12px auto;
+  width: 100%;
+  height: 33px;
+  align-items: center;
+  grid-template-columns: 40px 1fr;
+  border-radius: 7px;
+  color: var(--middleGray);
+  background: var(--thinGray); }
 
 .wrapper__login__otp--ribbons-item {
   position: relative; }
@@ -71,9 +83,13 @@
 .wrapper__login__otp--ribbons {
   position: absolute;
   height: inherit;
-  right: 23%; }
+  left: 23%;
+  z-index: 1; }
 
 .wrapper__login__otp--content {
-  text-align: center; }
+  text-align: center;
+  min-width: 300px;
+  max-width: 300px;
+  z-index: 2; }
 
 /*# sourceMappingURL=loginOTP.css.map */

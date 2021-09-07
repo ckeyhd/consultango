@@ -20,9 +20,11 @@ function App() {
       localStorage.clear();
       setLogged(false)
     }
+    console.log("cambió el estado");
   },[logged])
 
   const logout = () =>{
+    console.log("di click para hacer logout");
     setLogged(false)
     localStorage.removeItem("logged")
     localStorage.removeItem("authCode")
@@ -30,7 +32,9 @@ function App() {
 
   return (
     <div className="App">
-      {(logged) ? <Dashboard userInfo= { user } disconect = { logout }/> : <Login />}
+      {(logged)
+      ? <Dashboard userInfo= { user } disconect = { logout }/>
+      : <Login logged={ logged } setLogged = { setLogged } disconect = { logout }/>}
     </div>
   );
 }

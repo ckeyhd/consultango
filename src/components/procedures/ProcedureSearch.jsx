@@ -1,13 +1,11 @@
-import React, { Fragment, useState } from 'react'
-import { Avatar } from '../avatar/Avatar'
+import React, {Fragment, useState } from 'react'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function ProcedureSearch({ disconect, searchValue, setSearchValue }) {
+//CSS Import
+import "./procedureSearch.css"
 
-  /* const logout = () =>{
-    setLogged(false)
-    localStorage.removeItem("logged")
-    localStorage.removeItem("authCode")
-  } */
+function ProcedureSearch({ searchValue, setSearchValue }) {
 
   const proceduresChangeHandler = (e)=>{
     setSearchValue(e.target.value)
@@ -15,11 +13,16 @@ function ProcedureSearch({ disconect, searchValue, setSearchValue }) {
   }
 
   return (
-    <Fragment>
-      {<Avatar width="70px" height="70px"/>}
-      <input type="text" onChange={ proceduresChangeHandler } value={searchValue}/>
-      <button onClick={ disconect }>Logout</button>
-    </Fragment>
+      <Fragment>
+          {/* <Avatar width="70px" height="70px"/> */}
+          <div className="wrapper__procedure--search">
+            <input className="wrapper__procedure--search-input" type="text" onChange={ proceduresChangeHandler } value={searchValue} placeholder="Buscar trámite"/>
+            <label>
+              <FontAwesomeIcon icon={ faSearch } />
+            </label>
+          </div>
+        {/* <button className="button--primary" onClick={ disconect }>Logout</button> */}
+      </Fragment>
   )
 }
 

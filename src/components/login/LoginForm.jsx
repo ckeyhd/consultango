@@ -1,35 +1,50 @@
 import React, { Fragment, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 //Components Import
-import { Errors } from '../errors/Errors'
+import { Messages } from '../Messages/Messages'
 
-function LoginForm({validateUser}) {
+//CSS Import
+import "./loginForm.css"
+
+function LoginForm({validateUser, setMessage, disable, setDisable}) {
 
   const [userInfo, setUserInfo] = useState({email: " "})
-  const [error, setError] = useState(" ")
+  // const [error, setError] = useState(" ")
 
   const submitHandler = (e) => {
     e.preventDefault()
     if(userInfo.email === " "){
-      setError("El campo Email es obligatorio")
+      setMessage({
+        text: "El campo Email es obligatorio",
+        type: "error",
+        position: "left"
+      })
+      setDisable(false)
     }else{
       validateUser(userInfo)
-      setError(" ")
       console.log("Se envió!!!!");
     }
   }
 
+  const handlerChange = (e)=>{
+    setUserInfo({...userInfo, email: e.target.value})
+  }
+
   return (
-    <Fragment>
+    <div>
       <form onSubmit= { submitHandler }>
-        <Errors message={ error }/>
-        <div className="group__item">
-          <label htmlFor="">ICONO</label>
-          <input type="email" placeholder="Email" name="email" onChange={e => setUserInfo({...userInfo, email: e.target.value})} value={userInfo.email}/>
+        <div className="form__group--item">
+          <label htmlFor="">
+            <FontAwesomeIcon icon={faEnvelope}/>
+          </label>
+          {/* <input type="email" placeholder="Email" name="email" onChange={e => setUserInfo({...userInfo, email: e.target.value})} value={userInfo.email}/> */}
+          <input type="email" placeholder="Email" name="email" onChange={ handlerChange } value={userInfo.email}/>
         </div>
-        <button type="submit">Continuar</button>
+        <button className="button--primary" type="submit" disabled={ disable }>Continuar</button>
       </form>
-    </Fragment>
+    </div>
   )
 }
 

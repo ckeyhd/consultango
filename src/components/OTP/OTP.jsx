@@ -1,19 +1,27 @@
 import React, { Fragment, useState } from 'react'
 import { OTPInputGenerator } from './OTPInputGenerator'
-import { Errors } from '../errors/Errors'
+import { Messages } from '../Messages/Messages'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock } from '@fortawesome/free-solid-svg-icons'
 
-function OTP({ validationStatus, characters }) {
+//CSS Import
+import "./otp.css"
+
+function OTP({ validationStatus, characters, message, setMessage }) {
 
   const [OTPKey, setOTPKey] = useState(" ")
   const [countAttempts, setCountAttempts] = useState(1)
-  const [error, setError] = useState(" ")
 
   const validateChange = (e)=>{
 
     const OTPValue = e.target.value
 
     setOTPKey(OTPValue)
-    setError(" ")
+    /* setMessage({
+      text: "",
+      type: "error",
+      position: "right"
+    }) */
 
     if(OTPValue.length === characters){
       const authCode = localStorage.getItem("authCode")
@@ -22,7 +30,11 @@ function OTP({ validationStatus, characters }) {
         validationStatus('ok')
       }else{
         setCountAttempts(countAttempts+1)
-        setError("Codigo Errado!!!")
+        setMessage({
+          text: "Codigo Errado!!!",
+          type: "error",
+          position: "right"
+        })
         setOTPKey(" ")
       }
     }
@@ -30,17 +42,27 @@ function OTP({ validationStatus, characters }) {
 
   //Validar cantidad de intentos de ingreso
   if(countAttempts > 3){
-    // setError("Demasiados Intentos... Debe solicitar un nuevo código!!!")
+    setMessage({
+      text: "Demasiados Intentos... Debe solicitar un nuevo código!!!!!!",
+      type: "error",
+      position: "right"
+    })
     validationStatus("moreAttempts")
+    /* setTimeout(()=>{
+    },2000) */
   }
 
   return (
     <Fragment>
-      <Errors message= { error }/>
+      {/* <Messages message= { error }/> */}
       <div className="wrapper__login__otp--inputs">
-        <OTPInputGenerator qty={ characters } validateChange={ validateChange } OTPKey={ OTPKey }/>
+        <div className="wrapper__login__otp--input">
+          <label htmlFor="">
+            <FontAwesomeIcon icon={ faLock} />
+          </label>
+          <OTPInputGenerator qty={ characters } validateChange={ validateChange } OTPKey={ OTPKey }/>
+        </div>
       </div>
-      <button>Enviar nuevamente...</button>
     </Fragment>
   )
 }

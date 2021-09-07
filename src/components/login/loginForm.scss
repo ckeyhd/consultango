@@ -1,0 +1,10 @@
+.form__group--item{
+  display: grid;
+  margin-bottom: 12px;
+  height: 33px;
+  align-items: center;
+  grid-template-columns: 40px 260px;
+  border-radius: 7px;
+  color: var(--middleGray);
+  background: var(--thinGray);
+}

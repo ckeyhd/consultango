@@ -40,7 +40,7 @@ import { DetailProcedureList } from '../proceduresDetails/DetailProcedureList'
 
    return (
      <Fragment>
-      <div className="wrapper__content--content">
+      <div className="wrapper__dashboard--content">
           <DetailProcedureList>
             {
               detailList.map(detail=>(
