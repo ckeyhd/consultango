@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/consultango/static/css/main.b2795709.chunk.css",
+    "main.js": "/consultango/static/js/main.da0fc7a8.chunk.js",
+    "main.js.map": "/consultango/static/js/main.da0fc7a8.chunk.js.map",
+    "runtime-main.js": "/consultango/static/js/runtime-main.618142ee.js",
+    "runtime-main.js.map": "/consultango/static/js/runtime-main.618142ee.js.map",
+    "static/js/2.52edea31.chunk.js": "/consultango/static/js/2.52edea31.chunk.js",
+    "static/js/2.52edea31.chunk.js.map": "/consultango/static/js/2.52edea31.chunk.js.map",
+    "index.html": "/consultango/index.html",
+    "static/css/main.b2795709.chunk.css.map": "/consultango/static/css/main.b2795709.chunk.css.map",
+    "static/js/2.52edea31.chunk.js.LICENSE.txt": "/consultango/static/js/2.52edea31.chunk.js.LICENSE.txt",
+    "static/media/logoParkSite.jpeg": "/consultango/static/media/logoParkSite.384a134a.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.618142ee.js",
+    "static/js/2.52edea31.chunk.js",
+    "static/css/main.b2795709.chunk.css",
+    "static/js/main.da0fc7a8.chunk.js"
+  ]
+}
