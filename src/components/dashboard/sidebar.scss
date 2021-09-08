@@ -3,6 +3,7 @@ $background: linear-gradient(to bottom right, var(--orange), var(--pink), var(--
 .wrapper__dashboard--sidebar{
   overflow: hidden;
   background: #fff;
+  border-right: 5px solid var(--thinGray);
 }
 
 .wrapper__dashboard--sidebar-header{

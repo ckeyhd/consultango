@@ -1,6 +1,7 @@
 .wrapper__dashboard--sidebar {
   overflow: hidden;
-  background: #fff; }
+  background: #fff;
+  border-right: 5px solid var(--thinGray); }
 
 .wrapper__dashboard--sidebar-header {
   display: flex;

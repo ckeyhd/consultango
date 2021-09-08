@@ -1,3 +1,11 @@
-
+.wrapper__dashboard--content {
+  /* width: 100vw;
+  height: 100vh; */
+  background: #fff;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  justify-content: center; }
 
 /*# sourceMappingURL=content.css.map */

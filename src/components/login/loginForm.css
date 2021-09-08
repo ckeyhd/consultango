@@ -6,6 +6,7 @@
   grid-template-columns: 40px 260px;
   border-radius: 7px;
   color: var(--middleGray);
-  background: var(--thinGray); }
+  background: var(--thinGray);
+  overflow: hidden; }
 
 /*# sourceMappingURL=loginForm.css.map */

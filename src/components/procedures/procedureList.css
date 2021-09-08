@@ -1,6 +1,6 @@
 .wrapper__procedure--list {
   overflow: scroll;
-  height: inherit;
+  height: 85%;
   z-index: 1;
   position: relative;
   /* &:hover{

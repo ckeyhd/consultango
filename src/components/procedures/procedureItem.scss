@@ -6,7 +6,7 @@
   z-index: 1;
   position: relative;
   &:hover ~.wrapper__procedure--list{
-    // filter: blur(0px);
+    filter: blur(0px);
   }
 }
 
@@ -40,7 +40,7 @@
 .wrapper__procedure--card-date{
   display: grid;
   grid-template-columns: 25px 1fr;
-  margin: 3px ​0;
+  margin: 3px 0;
   grid-gap: 10px;
 }
 

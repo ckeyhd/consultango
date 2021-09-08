@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Avatar } from '../avatar/Avatar'
 import { Dashboard } from '../dashboard/Dashboard'
 import { Messages } from '../Messages/Messages'
@@ -7,31 +7,33 @@ import { OTP } from '../OTP/OTP'
 //CSS Import
 import "./loginOTP.css"
 
-function LoginOTP({ characters, userInfo , logged, setLogged, message, setMessage, disconect}) {
+function LoginOTP({ characters, userInfo , logged, setLogged, message, setMessage}) {
 
-  useEffect(()=>{
-    setMessage({})
-  },[])
+  const [title, setTitle] = useState("El código fue enviado a su correo electrónico! 🚀")
 
   const validationStatus = (status)=>{
     if(status === 'ok'){
+      console.log("valor de userInfo en LOGIN",userInfo);
       localStorage.setItem("userInfo",JSON.stringify(userInfo))
       setLogged(true)
-    }else if(status === 'moreAttempts'){
-      window.location.reload(false);
-      /* setTimeout(() => {
-      }, 2000); */
+    }else if(status==='moreAttempts'){
+      setTitle("Serás redireccionado para intentarlo de nuevo.")
+      setMessage({
+        text: "Que mal... Intenta de nuevo!!! 🤥 ",
+        type: "error",
+        position: "right"
+      })
+      setTimeout(()=>{
+        window.location.reload()
+      },2000)
     }
-  }
-
-  const handlerClick = ()=>{
-    window.location.reload()
   }
 
   return (
     <Fragment>
       {
-        (logged) ? <Dashboard userInfo={ userInfo } logged={ logged } setLogged = { setLogged }/>
+        (logged)
+        ? <Dashboard userInfo={ userInfo } logged={ logged } setLogged = { setLogged }/>
         :
         <div className="wrapper__login__otp">
           <div className="wrapper__login__otp--ribbons">
@@ -42,12 +44,10 @@ function LoginOTP({ characters, userInfo , logged, setLogged, message, setMessag
             <span className="wrapper__login__otp--ribbons-item"></span>
           </div>
           <div className="wrapper__login__otp--content">
-            <Avatar width="100px" height="100px"/>
-            <p>El código fue enviado a su correo electrónico!</p>
+            <Avatar width="100px" height="100px" logged = { logged }/>
+            <p>{ title }</p>
             <Messages message={ message }/>
-            <OTP validationStatus={ validationStatus } characters={ characters } message={ message } setMessage={ setMessage }/>
-            <button onClick={ handlerClick }>Enviar nuevamente...</button>
-
+            <OTP validationStatus={ validationStatus } characters={ characters } setMessage={ setMessage }/>
           </div>
         </div>
       }

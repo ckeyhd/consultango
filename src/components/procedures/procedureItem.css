@@ -1,10 +1,11 @@
-@charset "UTF-8";
 .wrapper__procedure--card {
   padding: 1.5em;
   cursor: pointer;
   border-bottom: solid 2px var(--thinGray);
   z-index: 1;
   position: relative; }
+  .wrapper__procedure--card:hover ~ .wrapper__procedure--list {
+    filter: blur(0px); }
 
 .wrapper__procedure--card-top {
   justify-content: space-between;
@@ -33,7 +34,7 @@
 .wrapper__procedure--card-date {
   display: grid;
   grid-template-columns: 25px 1fr;
-  margin: 3px ​0;
+  margin: 3px 0;
   grid-gap: 10px; }
 
 .wrapper__procedure--card-last {

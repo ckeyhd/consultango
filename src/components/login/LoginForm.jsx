@@ -2,9 +2,6 @@ import React, { Fragment, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-//Components Import
-import { Messages } from '../Messages/Messages'
-
 //CSS Import
 import "./loginForm.css"
 

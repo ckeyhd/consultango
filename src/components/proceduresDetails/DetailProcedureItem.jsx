@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock, faUser } from '@fortawesome/free-solid-svg-icons'
 
-function DetailProcedureItem({ data }) {
+//CSS Import
+import './detailProcedureItem.css'
 
-  let className = "procedure__detail--item"
-  if(data.id % 2){
+function DetailProcedureItem({ data , index }) {
+
+  let className = "wrapper__procedure__detail--item"
+  if(index % 2){
     className+=" pair"
   }else{
     className+=" odd"
@@ -14,10 +19,21 @@ function DetailProcedureItem({ data }) {
     <Fragment>
       <li className={ className }>
         <div>
-          <span>{data.id}</span>
-          <p>{data.description}</p>
-          <p>{data.dateCreated}</p>
-          <span>{data.user}</span>
+          <h4>ID: { data.id }</h4>
+          <span className="wrapper__procedure__detail--item-number">{index}</span>
+          <p className="wrapper__procedure__detail--item-title">{data.description}</p>
+          <div className="wrapper__procedure__detail--item-date">
+            <span>
+              <FontAwesomeIcon icon={faClock} />
+            </span>
+            <p>{data.dateCreated}</p>
+          </div>
+          <div className="wrapper__procedure__detail--item-date">
+            <span>
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+            <p>{data.user}</p>
+          </div>
         </div>
       </li>
     </Fragment>

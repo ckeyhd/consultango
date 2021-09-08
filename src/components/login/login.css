@@ -12,35 +12,7 @@
   box-shadow: 0px 0px 10px 0px #e6d7eb;
   position: relative; }
   .wrapper__login:hover {
-    box-shadow: 0px 0px 14px 0px var(--orange);
-    /* .wrapper__login--ribbons-item{
-      &::before{
-        animation-name: floating;
-        animation-duration: 2.1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-      }
-      &:nth-child(1){
-        &::before{
-          animation-delay: .1s;
-        }
-      }
-      &:nth-child(2){
-        &::before{
-          animation-delay: .2s;
-        }
-      }
-      &:nth-child(4){
-        &::before{
-          animation-delay: .3s;
-        }
-      }
-      &:nth-child(5){
-        &::before{
-          animation-delay: .4s;
-        }
-      }
-    } */ }
+    box-shadow: 0px 0px 14px 0px var(--orange); }
 
 @keyframes floating {
   from {
@@ -117,5 +89,22 @@
   text-align: center;
   padding: 0 2.5em;
   width: 300px; }
+
+@media only screen and (max-width: 768px) {
+  .wrapper__login {
+    width: 90%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+
+  .wrapper__login--ribbons {
+    left: 0;
+    position: absolute;
+    z-index: 1; }
+
+  .wrapper__login--content {
+    z-index: 2; } }
 
 /*# sourceMappingURL=login.css.map */

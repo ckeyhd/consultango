@@ -8,6 +8,7 @@ function App() {
   const [user, setUser] = useState(" ")
 
   useEffect(() => {
+    let isSubscribed = true;
     if(localStorage.getItem("logged") === "yes"){
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
       if(userInfo){
@@ -21,6 +22,7 @@ function App() {
       setLogged(false)
     }
     console.log("cambió el estado");
+    return () => (isSubscribed = false)
   },[logged])
 
   const logout = () =>{
@@ -33,7 +35,7 @@ function App() {
   return (
     <div className="App">
       {(logged)
-      ? <Dashboard userInfo= { user } disconect = { logout }/>
+      ? <Dashboard userInfo= { user } disconect = { logout } logged={ logged }/>
       : <Login logged={ logged } setLogged = { setLogged } disconect = { logout }/>}
     </div>
   );

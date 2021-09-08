@@ -6,7 +6,7 @@ import { Content } from './Content'
 //CSS Import Sections
 import "./dashboard.css"
 
-function Dashboard({ disconect, userInfo }) {
+function Dashboard({ logged, disconect, userInfo }) {
 
   const [seeDetails, setSeeDetails] = useState(userInfo.id)
   const getDetails = (procedureID)=>{
@@ -18,7 +18,7 @@ function Dashboard({ disconect, userInfo }) {
   return (
     <Fragment>
       <div className="wrapper__dashboard">
-        <SideBar disconect={ disconect } getDetails={ getDetails } userInfo={ userInfo }/>
+        <SideBar logged={logged} disconect={ disconect } getDetails={ getDetails } userInfo={ userInfo }/>
         <Content procedureID={ seeDetails }/>
       </div>
     </Fragment>

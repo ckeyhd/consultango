@@ -1,0 +1,107 @@
+@keyframes pulse {
+  50% {
+    box-shadow: 0px 0px 0px 3px var(--purple);
+    border-radius: 100%; } }
+.wrapper__procedure__detail--item {
+  border: 5px dotted #fff;
+  border-radius: 33px;
+  padding: 1.2em;
+  position: relative;
+  width: 300px;
+  margin: 15px 0;
+  min-height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--purple);
+  color: #fff; }
+
+.pair {
+  left: 50%; }
+  .pair .wrapper__procedure__detail--item-number {
+    right: -6%; }
+  .pair::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    margin-top: -7.5px;
+    animation: pulse .7s infinite ease-in; }
+  .pair::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 4px;
+    /* border-radius: 100%; */
+    background-color: var(--purple);
+    position: absolute;
+    left: -31px;
+    top: 50%;
+    margin-top: -2px; }
+
+.odd {
+  right: 20%; }
+  .odd .wrapper__procedure__detail--item-number {
+    left: -6%; }
+  .odd::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    margin-top: -7.5px;
+    animation: pulse .7s infinite ease-in; }
+  .odd::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 4px;
+    background-color: var(--purple);
+    position: absolute;
+    right: -31px;
+    top: 50%;
+    margin-top: -2px; }
+
+.wrapper__procedure__detail--item-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word; }
+
+.wrapper__procedure__detail--item-number {
+  background: var(--pink);
+  color: #fff;
+  padding: 1em;
+  border-radius: 100%;
+  position: absolute;
+  top: -13px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 3px var(--pink);
+  border: solid #fff; }
+
+.wrapper__procedure__detail--item-date {
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  margin: 3px 0;
+  grid-gap: 10px; }
+
+/*# sourceMappingURL=detailProcedureItem.css.map */

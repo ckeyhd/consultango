@@ -32,6 +32,7 @@ function Login({ logged, setLogged, disconect}) {
   }
 
   useEffect(() => {
+    let isSubscribed = true;
     let showHideMessage = document.querySelector('.notify')
     if(showHideMessage){
       if(showHideMessage.classList.contains('show')){
@@ -45,7 +46,7 @@ function Login({ logged, setLogged, disconect}) {
 
     console.log("valor de showHideMessage",showHideMessage);
     console.log("valor de message",message);
-
+    return () => (isSubscribed = false)
   }, [message.text])
 
   const generateForm = (userInfo) =>{
@@ -188,7 +189,7 @@ function Login({ logged, setLogged, disconect}) {
             <span className="wrapper__login--ribbons-item"></span>
           </div>
           <div className="wrapper__login--content">
-            <Avatar width="100px" height="100px"/>
+            <Avatar width="100px" height="100px" logged = { logged }/>
             <Messages message={ message } />
             <LoginForm
               validateUser = { validateUser }

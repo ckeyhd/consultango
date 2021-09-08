@@ -1,13 +1,17 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
+//Components Import
 import { DetailProcedureItem } from '../proceduresDetails/DetailProcedureItem'
 import { DetailProcedureList } from '../proceduresDetails/DetailProcedureList'
+
+//CSS Import
+import './content.css'
 
  function Content({ procedureID }) {
 
   const proceduresDetails = [
     {id: 1, clientID: 1,procedureID: 1, description: "Se inicia estudio de crédito", dateCreated: "2021-01-22 10:00", user: "ataborda"},
-    {id: 2, clientID: 1, procedureID: 1, description: "La documentación enviada por el ciente es correcta", dateCreated: "2021-01-22 10:00", user: "mperez"},
+    {id: 2, clientID: 1, procedureID: 1, description: "La documentación enviada por el ciente es correcta y por eso realizaremos el siguiente paso que es muy importante", dateCreated: "2021-01-22 10:00", user: "mperez"},
     {id: 3, clientID: 1, procedureID: 2, description: "El cliente solicita financiación del 50% del valor del vehículo", dateCreated: "2021-01-22 10:00", user: "gcardona"},
     {id: 4, clientID: 1, procedureID: 3, description: "Se inicia estudio de crédito para validación de TDC", dateCreated: "2006-09-27 15:00", user: "pholguin"},
     {id: 5, clientID: 1, procedureID: 3, description: "No es posible dar el monto solicitado", dateCreated: "2006-09-27 16:30", user: "jpulido"},
@@ -24,28 +28,25 @@ import { DetailProcedureList } from '../proceduresDetails/DetailProcedureList'
   const [detailList, setDetailList] = useState([])
 
   useEffect(() => {
-    getProceduresDetails(procedureID)
+      //Simular espera de llamada al server por la información del cliente
+      setTimeout(async() => {
+        const procedureDetailLIst = await proceduresDetails.filter(details => details.procedureID === procedureID);
+        console.log("valor de procedureDetailLIst",procedureDetailLIst);
+        procedureDetailLIst.sort((a,b)=>b.id - a.id) //Ordenar los detalles según el ID
+        setDetailList(procedureDetailLIst)
+      }, 1500);
   },[procedureID]);
 
-  //Obtener data según el ID del trámite del cliente
-  const getProceduresDetails = (procedureID)=>{
-    //Simular espera de llamada al server por la información del cliente
-    setTimeout(async() => {
-      const procedureDetailLIst = await proceduresDetails.filter(details => details.procedureID === procedureID);
-      console.log("valor de procedureDetailLIst",procedureDetailLIst);
-      procedureDetailLIst.sort((a,b)=>b.id - a.id) //Ordenar los detalles según el ID
-      setDetailList(procedureDetailLIst)
-    }, 1500);
-  }
 
    return (
      <Fragment>
       <div className="wrapper__dashboard--content">
           <DetailProcedureList>
             {
-              detailList.map(detail=>(
-                <DetailProcedureItem key={detail.id} data={ detail }/>
-              ))
+              detailList.map((detail, index)=>{
+                let number = detailList.length - index
+                return <DetailProcedureItem key={detail.id} data={ detail } index={ number }/>
+              })
             }
           </DetailProcedureList>
       </div>

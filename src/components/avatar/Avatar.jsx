@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 //CSS Import
 import "./avatar.css"
 
-function Avatar({width, height}) {
+function Avatar({width, height, logged}) {
 
   let avatarUser = {
     url:require("../../images/logoParkSite.jpeg").default,
@@ -13,22 +13,30 @@ function Avatar({width, height}) {
   const [userAvatar, setUserAvatar] = useState(avatarUser)
 
   useEffect(()=>{
+    let isSubscribed = true
     const getDataUser = async ()=>{
       const userInfo = await JSON.parse(localStorage.getItem("userInfo"))
-      if(userInfo){
+      console.group("Info de AVATAR")
+      console.log("valor de logged",logged);
+      console.log("valor de userInfo",userInfo);
+      console.log("estoy en getDataUser de Avatar");
+      console.groupEnd()
+
+      if(logged){
         setUserAvatar({
           url: `https://ui-avatars.com/api/?name=${userInfo.name}`,
           alt: userInfo.name
         })
 
       }else{
-        await setUserAvatar(avatarUser)
+        setUserAvatar(avatarUser)
         console.log("ingresó");
       }
     }
 
     getDataUser()
-  },[])
+    return () => (isSubscribed = false)
+  },[logged])
 
 
   return (
