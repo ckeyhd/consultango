@@ -22,7 +22,7 @@ function Login({ logged, setLogged, disconect}) {
   ]
 
   const [ userExist, setUserExist ] = useState({id:" ", name:" ", email:" ", status: " ", authCode: " "})
-  const [message, setMessage] = useState({text:"",type:""})
+  const [message, setMessage] = useState({text:"",type:"error",position:"right"})
   const [disable, setDisable] = useState(false)
 
   const characteresLength = 4; //Cantidad de caracteres que lleva el código de autorización

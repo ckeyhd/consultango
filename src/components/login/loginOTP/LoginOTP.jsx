@@ -35,7 +35,7 @@ function LoginOTP({ characters, userInfo , logged, setLogged, message, setMessag
     <Fragment>
       {
         (logged)
-        ? <Dashboard userInfo={ userInfo } logged={ logged } setLogged = { setLogged }/>
+        ? <Dashboard userInfo={ userInfo } logged={ logged } setLogged = { setLogged } message={ message } setMessage={ setMessage }/>
         :
         <div className="wrapper__login__otp">
           <div className="wrapper__login__otp--ribbons">

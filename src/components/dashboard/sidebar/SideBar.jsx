@@ -8,8 +8,9 @@ import { Avatar } from '../../avatar/Avatar'
 
 //CSS Import
 import './sidebar.css'
+import { Loading } from '../../loading/Loading'
 
-function SideBar({ logged, disconect, userInfo, getDetails }) {
+function SideBar({ logged, disconect, userInfo, getDetails, setMessage }) {
 
   const procedureList = [
     {id:1, clientId: 1, name:"Compra de Vivienda", status:"En progreso", icon:"faHome", applicationDate: "2021-01-22 10:00", lastUpdate: "2021-04-10 14:00"},
@@ -30,14 +31,22 @@ function SideBar({ logged, disconect, userInfo, getDetails }) {
   //Se almacena la información buscada por el usuario
   const [searchValue, setSearchValue] = useState('')
 
+  const [loadSidebar, setLoadSidebar] = useState(true)
+
 
   useEffect(() => {
     //Se asigna el ID del cliente para filtrarlo dentro de la información a consultar
-    // getProcedures(userInfo.id)
     setTimeout(async() => {
       const procedureUserLIst = await procedureList.filter(procedure => procedure.clientId === userInfo.id);
-      console.log("valor de procedureUserLIst",procedureUserLIst);
       setProcedures(procedureUserLIst)
+      setLoadSidebar(false)
+      if(procedureUserLIst.length === 0){
+        setMessage({
+          text: "No hay información para mostrar...! 😭",
+          type: "error",
+          position: "left"
+        });
+      }
     }, 1000);
     console.log("Nuevo efecto!");
   },[userInfo.id])
@@ -69,13 +78,18 @@ function SideBar({ logged, disconect, userInfo, getDetails }) {
               <ProcedureSearch searchValue={ searchValue } setSearchValue = { setSearchValue } />
               <button className="button--primary" onClick={ disconect }>Logout</button>
             </header>
-          <ProcedureList>
             {
-                searchedProcedures.map(procedure=>(
-                  <ProcedureItem key={ procedure.id } data={ procedure } getDetails={ getDetails }/>
-                ))
+              (loadSidebar)
+              ? <Loading />
+              :
+              <ProcedureList>
+                {
+                    searchedProcedures.map(procedure=>(
+                      <ProcedureItem key={ procedure.id } data={ procedure } getDetails={ getDetails }/>
+                    ))
+                }
+              </ProcedureList>
             }
-          </ProcedureList>
         </div>
       </Fragment>
   )

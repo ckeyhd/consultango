@@ -14,7 +14,15 @@
   align-items: center;
   justify-content: center;
   background: var(--purple);
-  color: #fff; }
+  transition: height .2s;
+  color: #fff;
+  cursor: pointer; }
+  .wrapper__procedure__detail--item:hover .wrapper__procedure__detail--item-title {
+    -webkit-line-clamp: initial;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: initial;
+    word-wrap: normal; }
 
 .pair {
   left: 50%; }

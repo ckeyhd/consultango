@@ -19,7 +19,18 @@ $pont-color: var(--purple);
   align-items: center;
   justify-content: center;
   background: var(--purple);
-  color: #fff
+  transition: height .2s;
+  color: #fff;
+  cursor: pointer;
+  &:hover{
+    .wrapper__procedure__detail--item-title{
+      -webkit-line-clamp: initial;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: initial;
+      word-wrap: normal;
+    }
+  }
 }
 
 .pair{
