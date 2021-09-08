@@ -14,7 +14,7 @@ function LoginForm({validateUser, setMessage, disable, setDisable}) {
     e.preventDefault()
     if(userInfo.email === " "){
       setMessage({
-        text: "El campo Email es obligatorio",
+        text: "El campo Email es obligatorio!",
         type: "error",
         position: "left"
       })

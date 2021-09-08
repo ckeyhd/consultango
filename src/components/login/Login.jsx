@@ -54,6 +54,7 @@ function Login({ logged, setLogged, disconect}) {
   const generateForm = (userInfo) =>{
     console.log("userInfo",userInfo);
 
+    //Asignar emoji segun el genero del usuario
     let emojiType = ""
     if(userInfo.genere === "female"){
       emojiType = '🕵🏼‍♀️ '
@@ -128,6 +129,7 @@ function Login({ logged, setLogged, disconect}) {
 
         //Generar código aleatorio según la cantidad de caracteres mínimos
         const authCode = await generateOTPCode(characteresLength)
+        console.log("authCode",authCode);
 
         //Encriptar y almacenar el código generado
         const CryptoJS = require("crypto-js");
@@ -143,7 +145,7 @@ function Login({ logged, setLogged, disconect}) {
         setDisable(true)
       }else{
         setMessage({
-          text: "El usuario no existe!",
+          text: "El usuario no existe o se encuentra bloqueado!",
           type: "error",
           position: "left"
         });

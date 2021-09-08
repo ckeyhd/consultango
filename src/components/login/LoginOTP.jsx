@@ -11,10 +11,12 @@ function LoginOTP({ characters, userInfo , logged, setLogged, message, setMessag
 
   const [title, setTitle] = useState("El código fue enviado a su correo electrónico! 🚀")
 
+  const {id, name} = userInfo
+
   const validationStatus = (status)=>{
     if(status === 'ok'){
-      console.log("valor de userInfo en LOGIN",userInfo);
-      localStorage.setItem("userInfo",JSON.stringify(userInfo))
+      const saveInfoUser = {id,name}
+      localStorage.setItem("userInfo",JSON.stringify(saveInfoUser))
       setLogged(true)
     }else if(status==='moreAttempts'){
       setTitle("Serás redireccionado para intentarlo de nuevo.")
