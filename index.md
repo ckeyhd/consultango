@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# ¡Consultango® App!
 
-You can use the [editor on GitHub](https://github.com/ckeyhd/consultango/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+**Bienvenid@ 👱🏽‍♂️👱🏼‍♀️ !!!**
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Que gusto que estés aquí...
 
-### Markdown
+**Consultango®** es una aplicación que te permite visualizar **rápidamente** 🚀 la información sobre cada uno de los trámites 📝 que tienes (Sí!!! es rápida e intuitiva 😎)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Si eres decidid@, ten en cuenta la siguiente información 🏆:
 
-```markdown
-Syntax highlighted code block
+- Prepárate para el cambio!! 🏃🏼‍♀️🏃🏽‍♂️
+  > Nuestro desarrollo está pensado para que puedas buscar y filtrar información en tiempo real.
+- Ingresa (eres Hacker 👨🏽‍💻)
+  >Dale play... Ingresa con tu usuario y enviaremos a tu correo un código de verificación para que puedas ingresar.
+- Usa y comparte 🔑
+>El egoísmo no es lo nuestro... Cuéntale a más personas y recibe grandes beneficios.
 
-# Header 1
-## Header 2
-### Header 3
+Así de fácil es esto! **Sin complicaciones.**
 
-- Bulleted
-- List
+## Importante 👨🏽‍🏫
+- La información aquí relacionada es **basada en una prueba técnica** y no es una aplicación para uso en la vida real (aún 😅)
+- Para conocer más, contáctame [@ckeyHD](https://twitter.com/ckeyhd) 👨🏽‍💻
+>Espero que hayas disfrutado de leer este Readme, tanto como yo elaborándolo.
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ckeyhd/consultango/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Genial! 🤓
