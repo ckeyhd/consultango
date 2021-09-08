@@ -34,6 +34,7 @@ function DetailProcedureItem({ data , index }) {
             </span>
             <p>{data.user}</p>
           </div>
+          <span className="wrapper__procedure__detail--item-scuare" ></span>
         </div>
       </li>
     </Fragment>

@@ -5,7 +5,7 @@
   z-index: 1;
   position: relative; }
   .wrapper__procedure--card:hover ~ .wrapper__procedure--list {
-    filter: blur(0px); }
+    filter: blur(1px); }
 
 .wrapper__procedure--card-top {
   justify-content: space-between;

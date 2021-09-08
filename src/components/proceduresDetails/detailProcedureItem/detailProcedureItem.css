@@ -1,6 +1,6 @@
 @keyframes pulse {
   50% {
-    box-shadow: 0px 0px 0px 3px var(--purple);
+    box-shadow: 0px 0px 0px 3px var(--pink);
     border-radius: 100%; } }
 .wrapper__procedure__detail--item {
   border: 5px dotted #fff;
@@ -20,18 +20,27 @@
   left: 50%; }
   .pair .wrapper__procedure__detail--item-number {
     right: -6%; }
+  .pair .wrapper__procedure__detail--item-scuare {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    animation: pulse .7s infinite ease-in;
+    left: -49px;
+    top: 50%;
+    margin-top: -12.5px;
+    z-index: 2; }
   .pair::before {
     content: '';
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
+    width: 7px;
+    height: 220px;
     background-color: var(--purple);
     position: absolute;
     left: -40px;
     top: 50%;
-    margin-top: -7.5px;
-    animation: pulse .7s infinite ease-in; }
+    margin-top: -110px; }
   .pair::after {
     content: '';
     display: inline-block;
@@ -48,26 +57,35 @@
   right: 20%; }
   .odd .wrapper__procedure__detail--item-number {
     left: -6%; }
+  .odd .wrapper__procedure__detail--item-scuare {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    animation: pulse .7s infinite ease-in;
+    right: -49px;
+    top: 50%;
+    margin-top: -12.5px;
+    z-index: 2; }
   .odd::before {
     content: '';
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
+    width: 7px;
+    height: 220px;
     background-color: var(--purple);
     position: absolute;
     right: -40px;
     top: 50%;
-    margin-top: -7.5px;
-    animation: pulse .7s infinite ease-in; }
+    margin-top: -110px; }
   .odd::after {
     content: '';
     display: inline-block;
-    width: 30px;
-    height: 4px;
+    width: 35px;
+    height: 7px;
     background-color: var(--purple);
     position: absolute;
-    right: -31px;
+    right: -35px;
     top: 50%;
     margin-top: -2px; }
 
