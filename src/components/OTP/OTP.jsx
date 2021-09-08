@@ -1,8 +1,11 @@
 import React, { Fragment, useState, useRef, useEffect } from 'react'
-import { OTPInputGenerator } from './OTPInputGenerator'
-import { Messages } from '../Messages/Messages'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
+import sha256 from 'crypto-js/sha256'
+
+//Components Import
+import { OTPInputGenerator } from './OTPInputGenerator'
+import { Messages } from '../Messages/Messages'
 
 //CSS Import
 import "./otp.css"
@@ -31,8 +34,14 @@ function OTP({ validationStatus, characters, setMessage }) {
     })
 
     if(OTPValue.length === characters){
-      const authCode = localStorage.getItem("authCode")
-      if(authCode===OTPValue){
+
+      //Extraer y desencriptar el código de acceso
+      const authEncrypt = localStorage.getItem("authEncrypt")
+      const CryptoJS = require("crypto-js");
+      const bytes  = CryptoJS.AES.decrypt(authEncrypt.toString(), OTPValue);
+      const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+      if(Number(OTPValue) === decryptedData){
         localStorage.setItem("logged","yes")
         validationStatus('ok')
       }else{

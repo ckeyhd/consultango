@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 //Libraries
 import emailjs from 'emailjs-com';
+import sha256 from 'crypto-js/sha256';
 
 //Components Import
 import { Avatar } from '../avatar/Avatar'
@@ -28,7 +29,8 @@ function Login({ logged, setLogged, disconect}) {
 
   //Generar código random
   const generateOTPCode = (number) =>{
-    return Math.floor(Math.random() * Math.pow(10,number));
+    // return Math.floor(Math.random() * Math.pow(10,number));
+    return Math.floor(Math.pow(10, number-1) + Math.random() * (Math.pow(10, number) - Math.pow(10, number-1) - 1));
   }
 
   useEffect(() => {
@@ -123,11 +125,15 @@ function Login({ logged, setLogged, disconect}) {
   const validateUser = (details) => {
     users.filter(async (user) => {
       if(user.email === details.email){
-        console.log("valor details",details.email);
-        console.log("valor user.email",user.email);
+
+        //Generar código aleatorio según la cantidad de caracteres mínimos
         const authCode = await generateOTPCode(characteresLength)
-        localStorage.setItem("authCode",authCode)
-        localStorage.setItem("authCodeMD5",authCode)
+
+        //Encriptar y almacenar el código generado
+        const CryptoJS = require("crypto-js");
+        let authEncrypt = CryptoJS.AES.encrypt(authCode.toString(), authCode.toString()).toString();
+        localStorage.setItem("authEncrypt",authEncrypt)
+
         await generateForm({...user,authCode})
         setMessage({
           text: "Un momento por favor...!",
@@ -144,26 +150,6 @@ function Login({ logged, setLogged, disconect}) {
         setDisable(false)
       }
     })
-    /* users.map(async (e) => {
-      if(e.email == details.email){
-        const authCode = await generateOTPCode(characteresLength)
-        localStorage.setItem("authCode",authCode)
-        localStorage.setItem("authCodeMD5",authCode)
-        console.log("valor de authCode",authCode);
-        console.log("valor de e.id",e.id);
-        setUserExist({
-          id: e.id,
-          name: e.name,
-          email: e.email,
-          status: "ok",
-          authCode: authCode
-        })
-      }else{
-        if(details.email !== " "){
-          return setError("El usuario no existe!");
-        }
-      }
-    }) */
   }
 
   return (
