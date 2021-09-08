@@ -20,14 +20,9 @@ function LoginOTP({ characters, userInfo , logged, setLogged, message, setMessag
       setLogged(true)
     }else if(status==='moreAttempts'){
       setTitle("Serás redireccionado para intentarlo de nuevo.")
-      setMessage({
-        text: "Que mal... Intenta de nuevo!!! 🤥 ",
-        type: "error",
-        position: "right"
-      })
       setTimeout(()=>{
         window.location.reload()
-      },2000)
+      },3000)
     }
   }
 

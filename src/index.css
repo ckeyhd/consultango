@@ -62,11 +62,9 @@ body {
 
 .notify{
   color: #fff;
-  /* border-radius: 15px 15px 0; */
-  /* margin-bottom: 14px; */
   padding: 7px 12px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 15.5px;
   max-width: 200px;
   position: absolute;
   bottom: -150px;

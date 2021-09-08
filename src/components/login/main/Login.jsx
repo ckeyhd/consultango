@@ -129,9 +129,10 @@ function Login({ logged, setLogged, disconect}) {
 
         //Generar código aleatorio según la cantidad de caracteres mínimos
         const authCode = await generateOTPCode(characteresLength)
-        console.log("authCode",authCode);
+        // console.log("authCode",authCode);
 
         //Encriptar y almacenar el código generado
+        // let authEncrypt = sha256(authCode.toString())
         const CryptoJS = require("crypto-js");
         let authEncrypt = CryptoJS.AES.encrypt(authCode.toString(), authCode.toString()).toString();
         localStorage.setItem("authEncrypt",authEncrypt)

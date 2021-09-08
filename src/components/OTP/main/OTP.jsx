@@ -34,29 +34,39 @@ function OTP({ validationStatus, characters, setMessage }) {
     })
 
     if(OTPValue.length === characters){
+      try {
+        //Extraer y desencriptar el código de acceso
+        const authEncrypt = localStorage.getItem("authEncrypt")
+        const CryptoJS = require("crypto-js");
+        const bytes  = CryptoJS.AES.decrypt(authEncrypt.toString(), OTPValue);
+        const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-      //Extraer y desencriptar el código de acceso
-      const authEncrypt = localStorage.getItem("authEncrypt")
-      const CryptoJS = require("crypto-js");
-      const bytes  = CryptoJS.AES.decrypt(authEncrypt.toString(), OTPValue);
-      const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        if(Number(OTPValue) === decryptedData){
+          localStorage.setItem("logged","yes")
+          validationStatus('ok')
+        }
 
-      if(Number(OTPValue) === decryptedData){
-        localStorage.setItem("logged","yes")
-        validationStatus('ok')
-      }else{
-        setCountAttempts(countAttempts+1)
-        setMessage({
-          text: "Codigo Errado!!!",
-          type: "error",
-          position: "right"
-        })
-        setOTPKey(" ")
+      } catch {
 
         //Validar cantidad de intentos de ingreso y lanzar notificación
+        setCountAttempts(countAttempts+1)
+
         if(countAttempts >= 3){
+          setOTPKey(" ")
           setDisabled(true)
           validationStatus("moreAttempts")
+          setMessage({
+            text: "Que mal... Intenta de nuevo!!! 🤥 ",
+            type: "error",
+            position: "right"
+          })
+        }else{
+          setMessage({
+            text: "Codigo Errado!!!",
+            type: "error",
+            position: "right"
+          })
+          setOTPKey(" ")
         }
       }
     }
