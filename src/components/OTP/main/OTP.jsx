@@ -4,8 +4,8 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 import sha256 from 'crypto-js/sha256'
 
 //Components Import
-import { OTPInputGenerator } from './OTPInputGenerator'
-import { Messages } from '../Messages/Messages'
+import { OTPInputGenerator } from '../OTPGenerator/OTPInputGenerator'
+import { Messages } from '../../Messages/Messages'
 
 //CSS Import
 import "./otp.css"

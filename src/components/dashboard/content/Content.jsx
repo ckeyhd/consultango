@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
 //Components Import
-import { DetailProcedureItem } from '../proceduresDetails/DetailProcedureItem'
-import { DetailProcedureList } from '../proceduresDetails/DetailProcedureList'
+import { DetailProcedureItem } from '../../proceduresDetails/detailProcedureItem/DetailProcedureItem'
+import { DetailProcedureList } from '../../proceduresDetails/detailProcedureList/DetailProcedureList'
 
 //CSS Import
 import './content.css'

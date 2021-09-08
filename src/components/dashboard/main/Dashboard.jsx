@@ -1,7 +1,7 @@
 //Import Components
 import React, { Fragment, useState } from 'react'
-import { SideBar } from './SideBar'
-import { Content } from './Content'
+import { SideBar } from '../sidebar/SideBar'
+import { Content } from '../content/Content'
 
 //CSS Import Sections
 import "./dashboard.css"

@@ -5,10 +5,10 @@ import emailjs from 'emailjs-com';
 import sha256 from 'crypto-js/sha256';
 
 //Components Import
-import { Avatar } from '../avatar/Avatar'
-import { Messages } from '../Messages/Messages'
-import { LoginForm } from './LoginForm'
-import { LoginOTP } from './LoginOTP'
+import { Avatar } from '../../avatar/Avatar'
+import { Messages } from '../../Messages/Messages'
+import { LoginForm } from '.././loginForm/LoginForm'
+import { LoginOTP } from '.././loginOTP/LoginOTP'
 
 //CSS Import
 import "./login.css"

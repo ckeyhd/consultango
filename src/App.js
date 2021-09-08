@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Login } from "./components/login/Login";
-import { Dashboard } from "./components/dashboard/Dashboard";
+import { Login } from "./components/login/main/Login";
+import { Dashboard } from "./components/dashboard/main/Dashboard";
 
 function App() {
 

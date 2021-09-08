@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
 //Components import
-import { ProcedureSearch } from '../procedures/ProcedureSearch'
-import { ProcedureList } from '../procedures/ProcedureList'
-import { ProcedureItem } from '../procedures/ProcedureItem'
-import { Avatar } from '../avatar/Avatar'
+import { ProcedureSearch } from '../../procedures/procedureSearch/ProcedureSearch'
+import { ProcedureList } from '../../procedures/procedureList/ProcedureList'
+import { ProcedureItem } from '../../procedures/procedureItem/ProcedureItem'
+import { Avatar } from '../../avatar/Avatar'
 
 //CSS Import
 import './sidebar.css'

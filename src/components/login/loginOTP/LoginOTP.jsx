@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Avatar } from '../avatar/Avatar'
-import { Dashboard } from '../dashboard/Dashboard'
-import { Messages } from '../Messages/Messages'
-import { OTP } from '../OTP/OTP'
+import { Avatar } from '../../avatar/Avatar'
+import { Dashboard } from '../../dashboard/main/Dashboard'
+import { Messages } from '../../Messages/Messages'
+import { OTP } from '../../OTP/main/OTP'
 
 //CSS Import
 import "./loginOTP.css"
